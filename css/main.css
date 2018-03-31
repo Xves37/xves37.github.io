@@ -36,7 +36,7 @@ table {
           box-shadow: 0 10px 100px 10px rgba(0, 0, 0, 0.4);
   position: relative;
   z-index: 5;
-  background: #1A3012 url(../img/bg-2.png) no-repeat center center;
+  background: #2C2985 url(../img/bg-2.jpg) no-repeat center center;
   -webkit-background-size: cover;
           background-size: cover; }
   .preview *::-moz-selection {
