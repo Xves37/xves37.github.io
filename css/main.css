@@ -1,0 +1,243 @@
+.content-center {
+  max-width: 1280px;
+  margin: 0 auto; }
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+a {
+  text-decoration: none;
+  color: black; }
+
+.visiting {
+  display: block !important; }
+  .visiting a {
+    color: red; }
+
+body {
+  font-family: sans-serif; }
+
+.working {
+  margin-top: 200px;
+  text-align: center; }
+  .working p {
+    font-size: 3em;
+    color: red;
+    text-transform: lowercase; }
+  .working img {
+    width: 50%;
+    margin-bottom: 20px; }
+
+/* reset browser styles */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-weight: normal; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1.2; }
+
+ol {
+  padding-left: 0em;
+  list-style: none; }
+
+ul {
+  padding-left: 0em;
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-top: 20px solid red;
+  background-color: white;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  header .menu,
+  header .menu-toggle {
+    display: none; }
+  header .logo {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%); }
+    header .logo svg {
+      width: 100px;
+      height: 100px; }
+      header .logo svg polygon {
+        fill: red; }
+    header .logo span {
+      position: absolute;
+      text-align: center;
+      width: 100px;
+      font-size: 2.5em;
+      font-weight: bold;
+      color: white;
+      z-index: 2;
+      font-family: sans;
+      cursor: default; }
+      header .logo span::-moz-selection {
+        background-color: transparent; }
+      header .logo span::selection {
+        background-color: transparent; }
+  header > nav {
+    width: 100%; }
+    header > nav ul {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: space-around;
+          -ms-flex-pack: distribute;
+              justify-content: space-around;
+      padding: 20px; }
+      header > nav ul li {
+        font-size: 2em; }
+        header > nav ul li a {
+          letter-spacing: 5px;
+          font-family: sans;
+          position: relative; }
+          header > nav ul li a:hover:after {
+            opacity: 1;
+            -webkit-transform: translate(5px, -5px);
+                -ms-transform: translate(5px, -5px);
+                    transform: translate(5px, -5px); }
+          header > nav ul li a:hover:before {
+            opacity: 1;
+            -webkit-transform: translate(-5px, 5px);
+                -ms-transform: translate(-5px, 5px);
+                    transform: translate(-5px, 5px); }
+          header > nav ul li a:after, header > nav ul li a:before {
+            content: "";
+            position: absolute;
+            opacity: 0;
+            height: 20px;
+            width: 20px;
+            bottom: -5px;
+            -webkit-transition: 0.2s;
+            -o-transition: 0.2s;
+            transition: 0.2s; }
+          header > nav ul li a:after {
+            top: -5px;
+            right: -5px;
+            border-top: 3px solid red;
+            border-right: 3px solid red; }
+          header > nav ul li a:before {
+            bottom: -5px;
+            left: -5px;
+            border-left: 3px solid red;
+            border-bottom: 3px solid red; }
+  header .menu-toggle {
+    width: 10%;
+    background-color: gray;
+    padding: 10px;
+    color: white;
+    font-size: 2em;
+    display: none;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    cursor: pointer;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s; }
+    header .menu-toggle ::-moz-selection {
+      background-color: transparent; }
+    header .menu-toggle ::selection {
+      background-color: transparent; }
+  header .menu {
+    position: absolute;
+    background-color: #FF9797;
+    top: 100%;
+    right: -15%;
+    opacity: 0;
+    font-size: 2em;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    -webkit-box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2); }
+    header .menu li {
+      padding: 10px 40px 10px 30px; }
+      header .menu li a {
+        color: white; }
+  header input {
+    display: none; }
+    header input:checked ~ .menu {
+      right: 0;
+      opacity: 1; }
+    header input:checked ~ .menu-toggle {
+      background-color: red; }
+
+@media screen and (max-width: 980px) {
+  header {
+    border: none; }
+    header .logo {
+      width: 10%;
+      height: auto;
+      background-color: red;
+      padding: 10px;
+      position: static;
+      -webkit-transform: none;
+          -ms-transform: none;
+              transform: none;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      header .logo span {
+        position: static; }
+      header .logo svg {
+        display: none; }
+    header > nav li {
+      display: none; }
+    header .menu-toggle {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; }
+    header .menu {
+      display: block; } }
+
+@media screen and (max-width: 480px) {
+  header > nav ul {
+    padding: 10px; }
+  header .logo {
+    width: 20%; }
+  header .menu-toggle {
+    width: 20%; } }
