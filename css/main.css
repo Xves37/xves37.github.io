@@ -16,7 +16,8 @@ a {
     color: red; }
 
 body {
-  font-family: sans-serif; }
+  font-family: sans-serif;
+  background-color: #eee; }
 
 .working {
   margin-top: 200px;
@@ -28,6 +29,20 @@ body {
   .working img {
     width: 50%;
     margin-bottom: 20px; }
+
+.page-wrap {
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  z-index: 0;
+  -webkit-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+          transform: translateX(0px); }
+
+.body-move {
+  -webkit-transform: translateX(-100px);
+      -ms-transform: translateX(-100px);
+          transform: translateX(-100px); }
 
 /* reset browser styles */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
@@ -62,10 +77,11 @@ table {
 header {
   width: 100%;
   position: fixed;
+  z-index: 5;
   top: 0;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  border-top: 20px solid red;
+  border-top: 20px solid #FF0035;
   background-color: white;
   display: -webkit-box;
   display: -webkit-flex;
@@ -87,7 +103,7 @@ header {
       width: 100px;
       height: 100px; }
       header .logo svg polygon {
-        fill: red; }
+        fill: url(#linear-gradient); }
     header .logo span {
       position: absolute;
       text-align: center;
@@ -142,18 +158,17 @@ header {
           header > nav ul li a:after {
             top: -5px;
             right: -5px;
-            border-top: 3px solid red;
-            border-right: 3px solid red; }
+            border-top: 3px solid #FF0035;
+            border-right: 3px solid #FF0035; }
           header > nav ul li a:before {
             bottom: -5px;
             left: -5px;
-            border-left: 3px solid red;
-            border-bottom: 3px solid red; }
+            border-left: 3px solid #FF0035;
+            border-bottom: 3px solid #FF0035; }
   header .menu-toggle {
     width: 10%;
-    background-color: gray;
     padding: 10px;
-    color: white;
+    color: #bbb;
     font-size: 2em;
     display: none;
     -webkit-box-align: center;
@@ -167,34 +182,88 @@ header {
     cursor: pointer;
     -webkit-transition: 0.2s;
     -o-transition: 0.2s;
-    transition: 0.2s; }
+    transition: 0.2s;
+    border-left: 0.3px solid #eee;
+    position: relative; }
+    header .menu-toggle .bread,
+    header .menu-toggle .meat {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-transition: 0.2s;
+      -o-transition: 0.2s;
+      transition: 0.2s; }
+      header .menu-toggle .bread:after, header .menu-toggle .bread:before,
+      header .menu-toggle .meat:after,
+      header .menu-toggle .meat:before {
+        content: '';
+        position: absolute;
+        width: 40%;
+        left: 50%;
+        height: 3px;
+        background-color: #bbb;
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+        -webkit-transition: opacity 0.4s, -webkit-transform 0.2s;
+        transition: opacity 0.4s, -webkit-transform 0.2s;
+        -o-transition: transform 0.2s, opacity 0.4s;
+        transition: transform 0.2s, opacity 0.4s;
+        transition: transform 0.2s, opacity 0.4s, -webkit-transform 0.2s; }
+    header .menu-toggle .bread:after {
+      top: 35%; }
+    header .menu-toggle .bread:before {
+      top: 65%; }
+    header .menu-toggle .meat:after, header .menu-toggle .meat:before {
+      top: 50%; }
     header .menu-toggle ::-moz-selection {
       background-color: transparent; }
     header .menu-toggle ::selection {
       background-color: transparent; }
   header .menu {
     position: absolute;
-    background-color: #FF9797;
+    background-color: #e4e4e4;
     top: 100%;
-    right: -100%;
-    opacity: 0;
+    right: 0%;
     font-size: 2em;
-    -webkit-transition: 0.5s ease-in-out;
-    -o-transition: 0.5s ease-in-out;
-    transition: 0.5s ease-in-out;
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
     -webkit-box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
-            box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2); }
+            box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
+    height: 100vh;
+    -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+            transform: translateX(100%); }
     header .menu li {
       padding: 10px 40px 10px 30px; }
       header .menu li a {
-        color: white; }
+        color: gray; }
   header input {
     display: none; }
     header input:checked ~ .menu {
       right: 0;
-      opacity: 1; }
-    header input:checked ~ .menu-toggle {
-      background-color: red; }
+      -webkit-transform: translateX(0%);
+          -ms-transform: translateX(0%);
+              transform: translateX(0%); }
+    header input:checked ~ .menu-toggle .bread:after {
+      opacity: 0;
+      -webkit-transform: translate(-50%, -200%);
+          -ms-transform: translate(-50%, -200%);
+              transform: translate(-50%, -200%); }
+    header input:checked ~ .menu-toggle .bread:before {
+      opacity: 0;
+      -webkit-transform: translate(-50%, 200%);
+          -ms-transform: translate(-50%, 200%);
+              transform: translate(-50%, 200%); }
+    header input:checked ~ .menu-toggle .meat:after {
+      -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          -ms-transform: translate(-50%, -50%) rotate(45deg);
+              transform: translate(-50%, -50%) rotate(45deg); }
+    header input:checked ~ .menu-toggle .meat:before {
+      -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+          -ms-transform: translate(-50%, -50%) rotate(-45deg);
+              transform: translate(-50%, -50%) rotate(-45deg); }
 
 @media screen and (max-width: 980px) {
   header {
@@ -202,7 +271,10 @@ header {
     header .logo {
       width: 10%;
       height: auto;
-      background-color: red;
+      background-color: #FF0035;
+      background-image: -webkit-linear-gradient(60deg, #FF0035, #FF0065, #FF2FB5);
+      background-image: -o-linear-gradient(60deg, #FF0035, #FF0065, #FF2FB5);
+      background-image: linear-gradient(30deg, #FF0035, #FF0065, #FF2FB5);
       padding: 10px;
       position: static;
       -webkit-transform: none;
@@ -235,9 +307,11 @@ header {
       display: block; } }
 
 @media screen and (max-width: 480px) {
+  body {
+    font-size: 14px; }
   header > nav ul {
     padding: 10px; }
   header .logo {
-    width: 20%; }
+    width: 70px; }
   header .menu-toggle {
     width: 20%; } }
