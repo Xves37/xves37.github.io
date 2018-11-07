@@ -17,7 +17,7 @@ function ajaxGet(city) {
         }
     }
 
-    request.open('GET', 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=ef5ffdb295f9241df26ba3b904510af5');
+    request.open('GET', 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=ef5ffdb295f9241df26ba3b904510af5');
     request.send();
 
 }
