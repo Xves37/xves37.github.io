@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 let btn       = document.querySelector('button.button');
 let cityInput = document.querySelector('.city-input');
 let error     = document.querySelector('.error');
