@@ -9,6 +9,11 @@ let weather  = document.querySelector('.weather');
 let temp     = document.querySelector('.temp');
 let press    = document.querySelector('.press');
 let humudity = document.querySelector('.humidity');
+let wind     = document.querySelector('.wind');
+let cloud    = document.querySelector('.cloud');
+let coords   = document.querySelector('.coords');
+let desc     = document.querySelector('.description');
+let image    = document.querySelector('.image');
 
 btn.addEventListener('click', () => {
     let input = deleteExtraSpaces(cityInput.value);
@@ -25,22 +30,26 @@ cityInput.addEventListener('keypress', (e) => {
 
 });
 
-function deleteExtraSpaces(str) { // validation
+function deleteExtraSpaces(str) { // delete extra spaces
     
     let j = [];
     let newStr = str.split('');
 
-    newStr.reduce( (last, el, i, arr) => {
+    newStr.reduce( (last, el, i) => {
+
         if (last == el && el == ' ') {
             j.push(i);
         }
         return el;
+
     })
 
     for (let i = newStr.length - 1; i > 0; i--) {
+
         if (j.indexOf(i) != -1) {
             newStr.splice(i,1)
         }
+
     }
 
     if (newStr[newStr.length - 1] == " ") {
@@ -90,6 +99,11 @@ function changeInfo(response) {
     temp.innerHTML     = Math.round(response.main.temp - 273.15);
     press.innerHTML    = response.main.pressure;
     humudity.innerHTML = response.main.humidity;
+    wind.innerHTML     = response.wind.speed;
+    cloud.innerHTML    = response.clouds.all;
+    desc.innerHTML     = '(' + response.weather[0].description + ')';
+    coords.innerHTML   = '(' + response.coord.lon + '; ' + response.coord.lat + ')';
+    image.src          = 'http://openweathermap.org/img/w/' + response.weather[0].icon + '.png';
 }
 
 function wrongInput(errorText) {

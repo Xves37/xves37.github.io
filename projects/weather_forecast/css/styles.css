@@ -162,14 +162,23 @@ h1 {
 h2 {
   color: #E91E63;
   font-size: 2em;
+  display: inline;
 }
 header {
   border-bottom: 3px solid #E91E63;
   padding: 15px 15px 5px 15px;
+  position: relative;
 }
 .weather {
   font-size: 1.3em;
 }
 .info ul {
   padding: 15px;
+}
+.image {
+  position: absolute; 
+  width: 75px;
+  height: 75px;
+  right: 10px;
+  top: 10px;
 }
