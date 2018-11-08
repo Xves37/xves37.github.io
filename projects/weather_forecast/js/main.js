@@ -10,7 +10,14 @@ let temp     = document.querySelector('.temp');
 let press    = document.querySelector('.press');
 let humudity = document.querySelector('.humidity');
 
-btn.addEventListener('click', () => ajaxGet(cityInput.value))
+btn.addEventListener('click', () => ajaxGet(cityInput.value));
+cityInput.addEventListener('keypress', (e) => {
+
+    if (e.keyCode == 13) {
+        ajaxGet(cityInput.value);
+    }
+
+})
 
 function ajaxGet(city) {
 
