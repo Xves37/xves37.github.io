@@ -67,7 +67,6 @@ function wrongInputBack() {
     error.classList.remove('error-visible');
     cityInput.classList.remove('input-error');
 }
-=======
 let btn       = document.querySelector('button.button');
 let cityInput = document.querySelector('.city-input');
 let error     = document.querySelector('.error');
@@ -137,4 +136,3 @@ function wrongInputBack() {
     error.classList.remove('error-visible');
     cityInput.classList.remove('input-error');
 }
->>>>>>> 5fb7cc91b6574b36f0795a0d2be7d2d9b48371fa
