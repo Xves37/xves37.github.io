@@ -10,14 +10,49 @@ let temp     = document.querySelector('.temp');
 let press    = document.querySelector('.press');
 let humudity = document.querySelector('.humidity');
 
-btn.addEventListener('click', () => ajaxGet(cityInput.value));
+btn.addEventListener('click', () => {
+    let input = deleteExtraSpaces(cityInput.value);
+    ajaxGet(input)
+});
+
 cityInput.addEventListener('keypress', (e) => {
 
+    
     if (e.keyCode == 13) {
-        ajaxGet(cityInput.value);
+        let input = deleteExtraSpaces(cityInput.value);
+        ajaxGet(input);
     }
 
-})
+});
+
+function deleteExtraSpaces(str) { // validation
+    
+    let j = [];
+    let newStr = str.split('');
+
+    newStr.reduce( (last, el, i, arr) => {
+        if (last == el && el == ' ') {
+            j.push(i);
+        }
+        return el;
+    })
+
+    for (let i = newStr.length - 1; i > 0; i--) {
+        if (j.indexOf(i) != -1) {
+            newStr.splice(i,1)
+        }
+    }
+
+    if (newStr[newStr.length - 1] == " ") {
+        newStr.splice(newStr.length - 1,1)
+    }
+
+    if (newStr[0] == " ") {
+        newStr.splice(0,1)
+    }
+
+    return newStr.join('');
+}
 
 function ajaxGet(city) {
 
