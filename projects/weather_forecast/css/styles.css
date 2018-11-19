@@ -173,15 +173,10 @@ h2 {
 .pressure::after {
 	background-image: url('../img/pressure.png')
 }
-.button img {
-	width: 20px;
-	display: none;
-}
+
 @media screen and (max-width: 500px) {
-	.button span {
-		display: none;
-	}
-	.button img {
-		display: block;
+	.button {
+		margin-top: 15px;
+		padding: 5px 10px;
 	}
 }
