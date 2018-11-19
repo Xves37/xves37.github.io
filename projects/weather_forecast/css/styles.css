@@ -109,6 +109,7 @@ input:focus {
 }
 .city {
 	margin-bottom: 10px;
+	position: relative;
 }
 h2 {
 	font-size: 2em;
@@ -176,6 +177,13 @@ h2 {
 	width: 20px;
 	display: none;
 }
+
+.flag {
+	position: absolute;
+	top: 7px;
+	right: 20px;
+}
+
 @media screen and (max-width: 400px) {
 	.button span {display: none}
 	.button img {

@@ -14,7 +14,7 @@ function weatherView() {
                 '<span class="country"> ' + countryCode + '</span>' +
             '</h2>' +
             '<div class="coords">(' + coords + ')</div>' +
-            '<div class="flag"></div>';
+            '<img class="flag" src="https://www.countryflags.io/' + countryCode + '/shiny/32.png"></img>';
 
         city.innerHTML = cityPattern;    
     }

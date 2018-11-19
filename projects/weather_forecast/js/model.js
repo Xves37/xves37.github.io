@@ -39,6 +39,26 @@ function weatherModel() {
 
     }
 
+
+    function test(request, callback) {
+        let isRequestReady = request.readyState == 4;
+        let isCityCorrect = isRequestReady && request.status == 200;
+        let isCityIncorrect = isRequestReady && request.status == 404;
+        let isFieldEmpty = isRequestReady == 4 && request.status == 400;
+
+        if (isCityCorrect) {
+            let responseJSON = request.responseText;
+            let response = JSON.parse(responseJSON);
+            
+            callback();
+            // hideError();
+        } else if (isCityIncorrect) {
+            // showError('You entered wrong city!');
+        } else if (isFieldEmpty) {
+            // showError('Enter something!');
+        }
+    }
+
     // function weatherWeek(city) {
     //     let request = new XMLHttpRequest();
     //     let url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=ef5ffdb295f9241df26ba3b904510af5';
