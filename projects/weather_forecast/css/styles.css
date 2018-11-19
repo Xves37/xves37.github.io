@@ -58,7 +58,6 @@ h1 {
 .input {
 	max-width: 600px;
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
 	padding: 10px;
 	margin: 10px auto;
@@ -74,7 +73,7 @@ input, .button {
 	border-radius: 20px;
 	font-size: 1.2em;
 } 
-input, .button:focus {
+input:focus, .button:focus {
 	outline: none;
 }
 input {
@@ -173,10 +172,13 @@ h2 {
 .pressure::after {
 	background-image: url('../img/pressure.png')
 }
-
-@media screen and (max-width: 500px) {
-	.button {
-		margin-top: 15px;
-		padding: 5px 10px;
+.button img {
+	width: 20px;
+	display: none;
+}
+@media screen and (max-width: 400px) {
+	.button span {display: none}
+	.button img {
+		display: block;
 	}
 }
