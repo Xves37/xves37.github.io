@@ -1,54 +1,144 @@
-let container = document.querySelector('.info');
-let error     = document.querySelector('.error');
-let loader    = document.querySelector('.round');
-let name      = document.querySelector('.city-name');
-let weather   = document.querySelector('.weather');
-let temp      = document.querySelector('.temp');
-let press     = document.querySelector('.press');
-let humudity  = document.querySelector('.humidity');
-let wind      = document.querySelector('.wind');
-let cloud     = document.querySelector('.cloud');
-let coords    = document.querySelector('.coords');
-let desc      = document.querySelector('.description');
-let image     = document.querySelector('.image');
+function weatherView() {
+    let city  = document.querySelector('.city');
+    let week  = document.querySelector('.week');
+    let today = document.querySelector('.today');
 
-function changeInfo(response) {
-    name.innerHTML     = response.name;
-    weather.innerHTML  = response.weather[0].main;
-    temp.innerHTML     = Math.round(response.main.temp - 273.15);
-    press.innerHTML    = response.main.pressure;
-    humudity.innerHTML = response.main.humidity;
-    wind.innerHTML     = response.wind.speed;
-    cloud.innerHTML    = response.clouds.all;
-    desc.innerHTML     = '(' + response.weather[0].description + ')';
-    coords.innerHTML   = '(' + response.coord.lon + '; ' + response.coord.lat + ')';
-    image.src          = 'http://openweathermap.org/img/w/' + response.weather[0].icon + '.png';
-}
+    function changeCity (response) {
+        let cityName = response.name;
+        let countryCode = response.sys.country;
+        let coords = response.coord.lon + '; ' + response.coord.lat;
 
-function showError(errorText) {
-    error.innerHTML = errorText;
-    error.classList.add('error-visible');
-    cityInput.classList.add('input-error');
-    
-    stopLoader();
-}
+        let cityPattern = 
+            '<h2 class="city-name">' +
+                '<span class="name">' + cityName + '</span>,' +
+                '<span class="country"> ' + countryCode + '</span>' +
+            '</h2>' +
+            '<div class="coords">(' + coords + ')</div>' +
+            '<div class="flag"></div>';
 
-function hideError() {
-    if (error.classList.contains('error-visible')) {        
-        error.classList.remove('error-visible');
-        cityInput.classList.remove('input-error');
+        city.innerHTML = cityPattern;    
     }
-}
 
-function startLoader() {
-    loader.classList.add('round-animation');
-}
-function stopLoader() {
-    loader.classList.remove('round-animation');
-}
+    function changeWeatherToday(response) {
+        let temp = Math.round(response.main.temp - 273.15);
+        let date = (new Date).toString().slice(0,25);
+        let desc = response.weather[0].description.toString()[0].toUpperCase() + response.weather[0].description.slice(1);
+        let humidity = response.main.humidity;
+        let pressure = response.main.pressure;
+        let windSpeed = response.wind.deg;
+        let clouds = response.clouds.all;
+        let icon = parseImg(response.weather[0].icon);
 
-function showWeatherForecast () {
-    if (!error.classList.contains('info-visible')) {
-        container.classList.add('info-visible');
-    }    
+
+
+        let weatherTodayPattern =
+            '<header>' +
+                '<div class="today-date">' + date + '</div>' +
+            '</header>' +
+            '<div class="today-weather">' +
+                '<div class="today-main">' +
+                    '<div class="temp-icon-wrap">' +
+                        '<div class="today-temp">' + temp + '°C</div>' +
+                        '<img class="today-icon" src="img/' + icon + '.png" alt="Weather Icon"></img>' +
+                    '</div>' +
+                    '<div class="today-description">' + desc + '</div>' +
+                '</div>' +
+                '<aside>' +
+                    '<ul>' +
+                        '<li class="humidity">' + humidity + '%</li>' +
+                        '<li class="pressure">' + pressure + ' hPa</li>' +
+                        '<li class="wind">' + windSpeed + ' m/s</li>' +
+                        '<li class="clouds">' + clouds + '%</li>' +
+                    '</ul>' +
+                '</aside>' +
+            '</div>';
+
+        today.innerHTML = weatherTodayPattern;
+    }
+
+    function parseImg(iconCode) {
+        if (iconCode == '03d' || iconCode == '03n' || iconCode == '04n' || iconCode == '04d') {
+            return '03d';
+        } else if (iconCode == '09d' || iconCode == '09n') {
+            return '09d';
+        } else if (iconCode == '10d' || iconCode == '10n') {
+            return '10d';
+        } else if (iconCode == '11d' || iconCode == '11n') {
+            return '11d';
+        } else if (iconCode == '13d' || iconCode == '13n') {
+            return '13d';
+        } else if (iconCode == '50d' || iconCode == '50n') {
+            return '50d';
+        } else {
+            return iconCode;
+        }
+    }
+
+    // function createSelectedByDayPattern() {
+
+    // }
+
+    // function createSelectedByTimePattern() {
+        
+    // }
+
+    // function changeSelectedWeather() {
+
+    // }
+
+    // <header>
+    //     <ul class="timeline">
+    //         <li class="time-1"></li>
+    //         <li class="time-2"></li>
+    //         <li class="time-3"></li>
+    //         <li class="time-4"></li>
+    //         <li class="time-5"></li>
+    //         <li class="time-6"></li>
+    //         <li class="time-7"></li>
+    //         <li class="time-8"></li>
+    //     </ul>
+    // </header>
+    // <div class="main-weather" data-time='9.00'>
+    //     <div class="main-temp"></div>
+    //     <div class="main-icon"></div>
+    //     <br>
+    //     <div class="main-description"></div>
+    // </div>
+    // <aside>
+    //     <ul>
+    //         <li class="humidity"></li>
+    //         <li class="pressure"></li>
+    //         <li class="wind"></li>
+    //         <li class="clouds"></li>                        
+    //     </ul>
+    // </aside>
+
+    // function changeWeek (response) {
+    //     let fullWeekPattern = '';
+
+    //     for (let i = 1; i < 6; i++) {
+
+    //     }
+    // }
+
+    // function createDayPattern() {
+    //     let dayPattern =
+    //         '<div class="day-1">' +
+    //             '<div class="day-and-data">' +
+    //                 '<div class="day-name"></div>' +
+    //                 '<div class="data"></div>' +
+    //             '</div>' +
+    //             '<div class="weather-little">' +
+    //                 '<div class="week-temp"></div>' +
+    //                 '<div class="week-icon"></div>' +
+    //             '</div>' +
+    //         '</div>';
+
+    //     return dayPattern;
+    // }
+
+    return {
+        changeCity: changeCity,
+        changeWeatherToday: changeWeatherToday
+    }
 }

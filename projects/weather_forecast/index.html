@@ -5,40 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather Forecaster</title>
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:800" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>Weather Forecaster</h1>
+    <header>
+        <h1>Weather Forecaster</h1>
+    </header>
+
     <div class="input">
-        <div class="input-block">
-            <input class="city-input" type="text" placeholder="Enter some city...">
-            <div class="error"></div>
-            <div class="round"></div>
-        </div>                
-        <button class="button">Check the weather!</button>
+        <div class="input-text">
+            <input type="text" placeholder="Enter your city">
+            <div class="loader"></div>
+        </div>
+        <button class="button">
+            <span>Search</span>
+            <img src="img/search.png" alt="Search">
+        </button>
     </div>
 
-    <div class="info">
-        <header>
-            <div class="main-info">
-                <h2 class="city-name"></h2>
-                <span class="coords"></span><br>
-                <span class="weather"></span>
-                <span class="description"></span>
+    <div class="weather-forecast">
+        <div class="name-and-week-wrap">
+            <div class="city">
+                
             </div>
-            <img class="image" src="" alt="">
-        </header>
-        <ul>
-            <li>Temp: <span class="temp"></span>°C</li>
-            <li>Pressure: <span class="press"></span> hPa</li>
-            <li>Humidity: <span class="humidity"></span> %</li>
-            <li>Wind speed: <span class="wind"></span> meter/sec</li>
-            <li>Cloudiness: <span class="cloud"></span> %</li>
-        </ul>
-    </div>
 
+            <!-- <div class="week">
+                
+            </div> -->
+        </div>
+    
+        <div class="today-and-selected-wrap">
+            <div class="today">
+
+            </div>
+
+            <!-- <div class="selected">
+                
+            </div> -->
+        </div>
+    </div>
+    
     <script src="js/view.js"></script>
     <script src="js/model.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
