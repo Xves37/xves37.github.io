@@ -16,9 +16,13 @@ ul {
 }
 a {
     text-decoration: none;
-    color:  #0288d1;
+}
+a:hover li{
+    background-color: #f9f9f9;
+    color: #0288d1;
 }
 p, li{
+    transition: 0.1s;
     background-color: white;
     color: #333;
     max-width:500px;
@@ -27,11 +31,13 @@ p, li{
     border-radius: 15px;   
     box-shadow: 0 3px 5px rgba(0,0,0,.2);    
 }
+
 p .answer {
     color: #0288d1;
 }
 
 input {
+    color: #444;
     font-size:2em;
     display: block;
     border-radius: 10px;
