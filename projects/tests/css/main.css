@@ -38,6 +38,7 @@ p .answer {
 
 input {
     color: #444;
+    max-width: 400px;
     font-size:2em;
     display: block;
     border-radius: 10px;
