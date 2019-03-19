@@ -14,14 +14,13 @@ body {
 ul {
     list-style-type: none;
 }
-a {
-    text-decoration: none;
-}
-a:hover li{
+
+a:hover {
     background-color: #f9f9f9;
     color: #0288d1;
 }
-p, li{
+p, a{
+    display: block;
     transition: 0.1s;
     background-color: white;
     color: #333;
@@ -29,21 +28,26 @@ p, li{
     margin: 10px auto;
     padding:10px;
     border-radius: 15px;   
-    box-shadow: 0 3px 5px rgba(0,0,0,.2);    
+    box-shadow: 0 3px 5px rgba(0,0,0,.2); 
+    text-decoration: none;   
 }
 
 p .answer {
     color: #0288d1;
 }
 
+.input-wrap {
+    max-width: 400px;    
+    margin: 0 auto;
+}
+
 input {
+    width: 100%;
     color: #444;
-    max-width: 400px;
     font-size:2em;
     display: block;
     border-radius: 10px;
     border: none;
-    margin: 0 auto;
     padding:  5px 10px;
     box-shadow: 0 3px 5px rgba(0,0,0,.2);
     margin-bottom: 20px;
