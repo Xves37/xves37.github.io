@@ -39,6 +39,7 @@ p .answer {
 .input-wrap {
     max-width: 400px;    
     margin: 0 auto 20px;
+    justify-content: center;
 }
 
 input {
