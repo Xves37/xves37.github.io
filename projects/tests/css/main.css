@@ -38,11 +38,11 @@ p .answer {
 
 .input-wrap {
     max-width: 400px;    
-    margin: 0 auto;
+    margin: 0 auto 20px;
 }
 
 input {
-    width: 100%;
+    width: 90%;
     color: #444;
     font-size:2em;
     display: block;
@@ -50,7 +50,6 @@ input {
     border: none;
     padding:  5px 10px;
     box-shadow: 0 3px 5px rgba(0,0,0,.2);
-    margin-bottom: 20px;
 }
 h1, h2 {
     color: white;
